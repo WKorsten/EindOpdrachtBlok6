@@ -1,17 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Auteur: Willem Korsten
+ * Klas: Bin-2B
+ * Datum: 27-02-2018
  */
 package eindopdrachtblok6willemkorsten;
 
 import java.util.ArrayList;
 
 
-public class Virus {
-    
+public class Virus implements Comparable{
+/*    Dit is de Virus-class die verschillende virus-gerelateerde informatie kan opslaan. 
+ *    In deze applicatie zal dit object de informatie opslaan die afkomstig is uit het bestand dat door de VirusGUI wordt ingeladen.
+ *    
+ */
+
+
+
 protected int ID;
-protected String soort;
 protected ArrayList<Integer> hostList;
 protected String classificatie;
 
@@ -31,14 +36,6 @@ protected String classificatie;
         this.ID = ID;
     }
 
-    public String getSoort() {
-        return soort;
-    }
-
-    public void setSoort(String soort) {
-        this.soort = soort;
-    }
-
     public ArrayList<Integer> getHostList() {
         return hostList;
     }
@@ -46,8 +43,19 @@ protected String classificatie;
     public void setHostList(ArrayList<Integer> hostList) {
         this.hostList = hostList;
     }
+@Override
+        public int compareTo(Object x) {
 
-    
+        Virus g = (Virus) x;
+        if (g.getClassificatie().compareTo(this.getClassificatie()) > 0) {
+            return -1;
+        } else if (g.getClassificatie().compareTo(this.getClassificatie()) < 0) {
+            return +1;
+        } else {
+            return 0;
+        }
+
+    }  
 
 
 }
